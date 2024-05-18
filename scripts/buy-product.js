@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const productId = urlParams.get('id');
 
     if (productId) {
-        fetch(`https://khmer-shoping.onrender.com/api/products/${productId}`)
+        fetch(`https://khmer-shoping.onrender.com/products/${productId}`)
             .then(response => response.json())
             .then(product => {
                 const productCard = document.createElement('div');

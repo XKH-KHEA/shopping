@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const productList = document.getElementById('product-list');
 
     // Fetch and display products
-    fetch('https://khmer-shoping.onrender.com/api/products')
+    fetch('https://khmer-shoping.onrender.com/products')
         .then(response => response.json())
         .then(data => {
             data.forEach(product => {
