@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             imageUrl: formData.get('imageUrl')
         };
 
-        fetch('http://localhost:3000/api/products', {
+        fetch('https://khmer-shoping.onrender.com/products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
