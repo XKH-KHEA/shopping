@@ -1,4 +1,4 @@
-
+/* 
 body,
 h1,
 nav {
@@ -83,7 +83,6 @@ nav a button:hover {
   color: #333;
 }
 
-/* Header styles */
 header {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: fixed;
@@ -97,7 +96,6 @@ header {
   font-size: 15px;
 }
 
-/* Main content styles */
 .content {
   margin-top: 60px;
   padding: 20px;
@@ -105,7 +103,6 @@ header {
 }
 
 
-/* view-style.css */
 
 
 header nav {
@@ -179,4 +176,225 @@ footer {
 .star-rating .fas {
   color: #ffd700;
   margin: 0 2px;
+} */
+
+body,
+h1,
+nav {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  text-align: left;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+nav a button {
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+nav a button:hover {
+  background: #0056b3;
+}
+
+.content {
+  display: flex;
+  flex-direction: column; /* Adjust for smaller screens */
+}
+
+.product-container {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; 
+}
+
+.product-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: calc(100% - 20px); 
+  max-width: 300px;
+  margin-bottom: 20px; 
+}
+
+.product-card img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.product-details {
+  margin-top: 10px;
+}
+
+.product-details h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.product-details p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.product-details p strong {
+  color: #333;
+}
+
+/* Header styles */
+header {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #eceef0;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  font-size: 15px;
+}
+
+/* Main content styles */
+.content {
+  margin-top: 60px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Adjust for smaller screens */
+}
+
+/* view-style.css */
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header nav a {
+  color: #000000;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 5px 10px;
+}
+
+header nav a:hover {
+  background-color: #ed8e8e;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 0 10px;
+  min-width: 200px; /* Ensure sections don't get too small */
+}
+
+.footer-section h4 {
+  border-bottom: 1px solid #575757;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section a {
+  margin: 5px 0;
+  color: #fff;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #222;
+}
+
+.star-rating {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.star-rating .fas {
+  color: #ffd700;
+  margin: 0 2px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column; /* Stack content vertically on smaller screens */
+  }
+
+  header nav {
+    flex-direction: column; /* Stack navigation links vertically */
+    align-items: flex-start;
+  }
+
+  header nav a {
+    margin: 5px 0; /* Add spacing between links */
+  }
+
+  .footer-container {
+    flex-direction: column; /* Stack footer sections vertically */
+    align-items: center;
+  }
+
+  .footer-section {
+    margin: 10px 0; /* Add spacing between footer sections */
+    min-width: 100%; /* Ensure sections take full width */
+  }
+}
+
+@media (max-width: 480px) {
+  nav a button {
+    padding: 8px 16px; /* Adjust button padding for smaller screens */
+  }
+
+  .product-card {
+    max-width: 100%; /* Allow product cards to take full width */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .product-details h2 {
+    font-size: 1.2em; /* Adjust font size */
+  }
 }

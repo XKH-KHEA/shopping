@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const productDetails = document.getElementById("product-details");
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
+  const rating = 4;
+  const stars = getStarRating(rating);
 
   if (productId) {
     fetch(`https://khmer-shoping.onrender.com/products/${productId}`)
@@ -16,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p>${product.description}</p>
                         <p><strong>Price:</strong> $${product.price}</p>
                         <p><strong>Category:</strong> ${product.category}</p>
+                        <div class="star-rating">${stars}</div>
                         <button id="buy-button">Buy Now</button>
                         <button id="add-cart">Add to Cart</button>
                     </div>
@@ -36,29 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
     productDetails.innerHTML = "<p>Product not found.</p>";
   }
 });
-
-// document.addEventListener("DOMContentLoaded", () => {
-//     const productDetails = document.getElementById("product-details");
-
-//     // Fetch product details (example product)
-//     const product = {
-//         name: "Sample Product",
-//         description: "This is a sample product description.",
-//         price: 19.99,
-//         imageUrl: "http://example.com/image.jpg"
-//     };
-
-//     const productCard = document.createElement("div");
-//     productCard.classList.add("product-card");
-
-//     productCard.innerHTML = `
-//         <img src="${product.imageUrl}" alt="${product.name}">
-//         <div class="product-details">
-//             <h2>${product.name}</h2>
-//             <p>${product.description}</p>
-//             <p><strong>Price: $${product.price}</strong></p>
-//         </div>
-//     `;
-
-//     productDetails.appendChild(productCard);
-// });
+function getStarRating(rating) {
+  let stars = "";
+  for (let i = 1; i <= 5; i++) {
+    if (i <= rating) {
+      stars += '<i class="fas fa-star"></i>';
+    } else {
+      stars += '<i class="far fa-star"></i>';
+    }
+  }
+  return stars;
+}
