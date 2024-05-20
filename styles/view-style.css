@@ -43,7 +43,7 @@ nav a button:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center; /* Center the cards */
+  justify-content: center; 
 }
 
 .product-card {
@@ -53,9 +53,10 @@ nav a button:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: calc(
     100% - 20px
-  ); /* Adjust width to fit within the container with gap */
+  ); 
   max-width: 300px;
-  margin-bottom: 20px; /* Add margin bottom for spacing */
+  margin-bottom: 20px; 
+  
 }
 
 .product-card img {
@@ -137,7 +138,7 @@ footer {
 .footer-container {
   display: flex;
   justify-content: space-around;
-  max-width: 1200px;
+  max-width: 12000px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -167,4 +168,15 @@ footer {
   text-align: center;
   padding: 10px 0;
   background-color: #222;
+}
+
+.star-rating {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.star-rating .fas {
+  color: #ffd700;
+  margin: 0 2px;
 }
