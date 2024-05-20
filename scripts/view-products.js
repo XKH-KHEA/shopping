@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
                 productCard.addEventListener('click', () => {
-                    window.location.href = `buy-product.html?id=${product._id}`;
+                    window.location.href = `./page/buy-product.html?id=${product._id}`;
                 });
                 productContainer.appendChild(productCard);
             });
