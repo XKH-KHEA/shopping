@@ -1,45 +1,95 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const productForm = document.getElementById('add-product-form');
-    const productList = document.getElementById('product-list');
+// document.addEventListener("DOMContentLoaded", () => {
+//   const productForm = document.getElementById("add-product-form");
+//   const productList = document.getElementById("product-list");
 
+//   // Fetch and display products
+//   fetch("https://khmer-shoping.onrender.com/products")
+//     .then((response) => response.json())
+//     .then((data) => {
+//       data.forEach((product) => {
+//         const listItem = document.createElement("li");
+//         listItem.textContent = `${product.name} - $${product.price}`;
+//         productList.appendChild(listItem);
+//       });
+//     });
+
+//   // Handle form submission
+//   productForm.addEventListener("submit", (e) => {
+//     e.preventDefault();
+
+//     const formData = new FormData(productForm);
+//     const productData = {
+//       name: formData.get("name"),
+//       description: formData.get("description"),
+//       price: parseFloat(formData.get("price")),
+//       category: formData.get("category"),
+//       imageUrl: formData.get("imageUrl"),
+//       stock: parseInt(formData.get("stock"))
+//     };
+
+//     fetch("https://khmer-shoping.onrender.com/products", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(productData),
+//     })
+//       .then((response) => response.json())
+//       .then((newProduct) => {
+//         const listItem = document.createElement("li");
+//         listItem.textContent = `${newProduct.name} - $${newProduct.price}`;
+//         productList.appendChild(listItem);
+//         productForm.reset();
+//       })
+//       .catch((error) => console.error("Error:", error));
+//   });
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const productForm = document.getElementById("add-product-form");
+    const productList = document.getElementById("product-list");
+  
     // Fetch and display products
-    fetch('https://khmer-shoping.onrender.com/products')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(product => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `${product.name} - $${product.price}`;
-                productList.appendChild(listItem);
-            });
+    fetch("https://khmer-shoping.onrender.com/products")
+      .then((response) => response.json())
+      .then((data) => {
+        data.forEach((product) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `${product.name} - $${product.price}`;
+          productList.appendChild(listItem);
         });
-
+      })
+      .catch((error) => console.error("Error fetching products:", error));
+  
     // Handle form submission
-    productForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(productForm);
-        const productData = {
-            name: formData.get('name'),
-            description: formData.get('description'),
-            price: parseFloat(formData.get('price')),
-            category: formData.get('category'),
-            imageUrl: formData.get('imageUrl')
-        };
-
-        fetch('https://khmer-shoping.onrender.com/products', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(productData)
+    productForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+  
+      const formData = new FormData(productForm);
+      const productData = {
+        name: formData.get("name"),
+        description: formData.get("description"),
+        price: parseFloat(formData.get("price")),
+        categoryId: formData.get("category"),
+        imageUrl: formData.get("imageUrl"),
+        stock: parseInt(formData.get("stock")),
+      };
+  
+      fetch("https://khmer-shoping.onrender.com/products", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(productData),
+      })
+        .then((response) => response.json())
+        .then((newProduct) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `${newProduct.name} - $${newProduct.price}`;
+          productList.appendChild(listItem);
+          productForm.reset();
         })
-        .then(response => response.json())
-        .then(newProduct => {
-            const listItem = document.createElement('li');
-            listItem.textContent = `${newProduct.name} - $${newProduct.price}`;
-            productList.appendChild(listItem);
-            productForm.reset();
-        })
-        .catch(error => console.error('Error:', error));
+        .catch((error) => console.error("Error:", error));
     });
-});
+  });
+  
