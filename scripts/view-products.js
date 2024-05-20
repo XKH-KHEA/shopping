@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h2>${product.name}</h2>
                         <p>${product.description}</p>
                         <p><strong>Price:</strong> $${product.price}</p>
-                        <p><strong>Category:</strong> ${product.category}</p>
                     </div>
                 `;
+                //<p><strong>Category:</strong> ${product.category}</p>
                 productCard.addEventListener('click', () => {
                     window.location.href = `./page/buy-product.html?id=${product._id}`;
                 });

@@ -1,90 +1,43 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const apiUrl = 'https://khmer-shoping.onrender.com'; // Add your API base URL here
+document.addEventListener("DOMContentLoaded", () => {
+    const userList = document.getElementById("user-list");
+    const loginForm = document.getElementById("login-form");
 
-    const getUsersButton = document.getElementById('getUsersButton');
-    const getUserForm = document.getElementById('getUserForm');
-    const updateUserForm = document.getElementById('updateUserForm');
-    const deleteUserForm = document.getElementById('deleteUserForm');
+    // Function to handle user login
+    function loginUser(username, password) {
+        fetch("https://khmer-shoping.onrender.com/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, password }),
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Login failed');
+            }
+            return response.json();
+        })
+        .then((data) => {
+            alert("Login successful!");
+            console.log("Logged in user:", data);
+            // Here you can redirect the user to another page or perform other actions
+        })
+        .catch((error) => {
+            console.error("Error logging in:", error);
+            alert("Login failed. Please check your credentials.");
+        });
+    }
 
-    getUsersButton.addEventListener('click', async function() {
-        try {
-            const response = await fetch(apiUrl + '/users', {
-                method: 'GET',
-                headers: {
-                    'Authorization': 'Bearer your_token_here' // Add your authorization token here
-                }
-            });
-            const data = await response.json();
-            console.log(data);
-            // Display users data in the UI (optional)
-        } catch (error) {
-            console.error('Error fetching users:', error);
-        }
-    });
+    // Event listener for login form submission
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const username = loginForm.username.value;
+        const password = loginForm.password.value;
 
-    getUserForm.addEventListener('submit', async function(event) {
-        event.preventDefault();
-        
-        const userId = document.getElementById('userId').value;
-
-        try {
-            const response = await fetch(apiUrl + '/users/' + userId, {
-                method: 'GET',
-                headers: {
-                    'Authorization': 'Bearer your_token_here' // Add your authorization token here
-                }
-            });
-            const data = await response.json();
-            console.log(data);
-            // Display user data in the UI (optional)
-        } catch (error) {
-            console.error('Error fetching user:', error);
-        }
-    });
-
-    updateUserForm.addEventListener('submit', async function(event) {
-        event.preventDefault();
-        
-        const userId = document.getElementById('updateUserId').value;
-        const newUsername = document.getElementById('updateUsername').value;
-        const newEmail = document.getElementById('updateEmail').value;
-
-        const requestBody = {};
-        if (newUsername) requestBody.username = newUsername;
-        if (newEmail) requestBody.email = newEmail;
-
-        try {
-            const response = await fetch(apiUrl + '/users/' + userId, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer your_token_here' // Add your authorization token here
-                },
-                body: JSON.stringify(requestBody)
-            });
-            const data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error('Error updating user:', error);
-        }
-    });
-
-    deleteUserForm.addEventListener('submit', async function(event) {
-        event.preventDefault();
-        
-        const userId = document.getElementById('deleteUserId').value;
-
-        try {
-            const response = await fetch(apiUrl + '/users/' + userId, {
-                method: 'DELETE',
-                headers: {
-                    'Authorization': 'Bearer your_token_here' // Add your authorization token here
-                }
-            });
-            const data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error('Error deleting user:', error);
+        if (username && password) {
+            loginUser(username, password);
+        } else {
+            alert("Please enter both username and password");
         }
     });
 });
