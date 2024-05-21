@@ -52,3 +52,19 @@ document.getElementById("account-link").onclick = function() {
 document.getElementById("close-sidebar").onclick = function() {
     document.getElementById("sidebar").style.width = "0";
 }
+
+// JavaScript code to handle category filtering
+document.querySelectorAll('.dropdown-content a').forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      const category = this.getAttribute('data-category');
+      // Call a function to filter products based on category
+      filterProductsByCategory(category);
+    });
+  });
+  
+  function filterProductsByCategory(category) {
+    // Implement logic to filter products by category
+    // You can show/hide products based on the selected category
+  }
+  
