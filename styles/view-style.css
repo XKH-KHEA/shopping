@@ -278,7 +278,7 @@ footer {
 
 .banner-images {
   display: flex;
-  width: 400%; /* 4 images, 100% each */
+  width: 100%; /* 4 images, 100% each */
   animation: slideLeft 30s linear infinite;
 }
 
