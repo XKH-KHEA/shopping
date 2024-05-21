@@ -41,7 +41,12 @@ function getStarRating(rating) {
     return stars;
 }
 document.getElementById("account-link").onclick = function() {
-    document.getElementById("sidebar").style.width = "250px";
+    var sidebar = document.getElementById("sidebar");
+    if (sidebar.style.width === "250px") {
+        sidebar.style.width = "0";
+    } else {
+        sidebar.style.width = "250px";
+    }
 }
 
 document.getElementById("close-sidebar").onclick = function() {
