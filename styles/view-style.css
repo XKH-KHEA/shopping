@@ -88,7 +88,10 @@ header {
   left: 0;
   width: 100%;
   background-color: #eceef0;
-  padding: 10px 20px;
+  height: 60px; /* Set fixed height */
+  padding: 0 20px; /* Remove top and bottom padding */
+  display: flex;
+  align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   font-size: 15px;
@@ -96,7 +99,7 @@ header {
 
 /* Main content styles */
 .content {
-  margin-top: 60px;
+  margin-top: 80px; /* Adjust to match the height of the fixed header */
   padding: 20px;
   display: flex;
   flex-direction: column; /* Adjust for smaller screens */
@@ -109,7 +112,7 @@ header nav {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  width: 100%;
 }
 
 header nav a {
@@ -275,7 +278,7 @@ footer {
 
 .banner-images {
   display: flex;
-  width: 100%; /* 4 images, 100% each */
+  width: 400%; /* 4 images, 100% each */
   animation: slideLeft 30s linear infinite;
 }
 
