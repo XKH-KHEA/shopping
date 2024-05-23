@@ -181,46 +181,6 @@ footer {
   margin: 0 2px;
 }
 
-/* Sidebar styles */
-.sidebar {
-  height: 50%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  background-color: #ffffff;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-  border-radius: 5%;
-  border-width: 1px;
-}
-
-.sidebar a {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  padding: 10px 15px;
-  text-decoration: none;
-  font-size: 18px;
-  color: #0e0d0d;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidebar a:hover {
-  background-color: #575757;
-}
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-}
-
-#account-link {
-  cursor: pointer;
-}
 
 /* Responsive styles */
 @media (max-width: 768px) {
@@ -299,8 +259,6 @@ footer {
   }
 }
 
-
-
 .nav-btn {
   background-color: #b7b9ba;
   color: white;
@@ -311,8 +269,9 @@ footer {
   border-width: 1px;
 }
 
-.nav-btn:hover, .nav-btn:focus {
-  background-color: #2980B9;
+.nav-btn:hover,
+.nav-btn:focus {
+  background-color: #2980b9;
 }
 
 .nav-filters__dropdown {
@@ -327,7 +286,7 @@ footer {
   min-width: 200px;
   max-height: 300px;
   overflow-y: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   padding: 10px;
 }
@@ -361,7 +320,6 @@ footer {
   margin: 0 5px;
 }
 
-
 @keyframes slideLeft {
   0% {
     transform: translateX(0);
@@ -386,7 +344,9 @@ footer {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-200%); /* Adjust animation distance for smaller screens */
+      transform: translateX(
+        -200%
+      ); /* Adjust animation distance for smaller screens */
     }
   }
 }
@@ -405,7 +365,50 @@ footer {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-300%); /* Adjust animation distance for very small screens */
+      transform: translateX(
+        -300%
+      ); /* Adjust animation distance for very small screens */
     }
   }
+}
+
+/* Sidebar styles */
+.sidebar {
+  height: 50%;
+  width: 0;
+  position: fixed;
+  z-index: 999; /* Less than header's z-index */
+  top: 75px; /* Adjusted to match the height of the fixed header */
+  right: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 20px; /* Adjusted padding to fit under header */
+  border-radius: 5%;
+  border-width: 1px;
+}
+
+.sidebar a {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #0e0d0d;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #575757;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+#account-link {
+  cursor: pointer;
 }
