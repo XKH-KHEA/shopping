@@ -47,4 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => console.error('Error:', error));
   }
-  
+  document.getElementById('submit').addEventListener('click', function() {
+    window.location.href = '../page/payment.html';
+});
