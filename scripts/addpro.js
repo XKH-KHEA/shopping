@@ -93,3 +93,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
+  // JavaScript function to load Add Product page content

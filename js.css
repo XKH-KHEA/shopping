@@ -1,0 +1,36 @@
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .menu-drawer__navigation {
+    background-color: #f4f4f4;
+    padding: 10px;
+  }
+  
+  .menu-drawer__menu {
+    list-style: none;
+  }
+  
+  .menu-drawer__menu-item {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu-drawer__menu-item:hover {
+    background-color: #ddd;
+  }
+  
+  .menu-drawer__menu-item--active {
+    background-color: #ccc;
+  }
+  

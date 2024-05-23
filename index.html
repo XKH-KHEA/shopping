@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>View Products</title>
     <link rel="stylesheet" href="./styles/view-style.css" />
     <link
       rel="stylesheet"
@@ -18,11 +17,10 @@
           <a href="./page/addproduct.html"
             ><i class="fas fa-plus-circle"></i> Add Product</a
           >
+          <!-- <iframe src="./page/addproduct.html" id="add-product-link" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" >
+            <i class="fas fa-plus-circle"></i> Add Product</iframe> -->
         </div>
         <div class="nav-right">
-          <a href="./page/contact.html"
-            ><i class="fas fa-envelope"></i> Contact Us</a
-          >
           <a href="./page/cart.html"
             ><i class="fas fa-shopping-cart"></i> Cart</a
           >
@@ -44,20 +42,23 @@
       </div>
     </div>
     <nav>
-        <!-- Navigation links remain the same -->
-        <div class="nav-filters">
-          <div class="nav-filters__dropdown">
-            <button class="dropbtn">Categories <i class="fas fa-caret-down"></i></button>
-            <div class="dropdown-content">
-              <input type="text" placeholder="Search categories...">
-              <a href="#" data-category="category1"><span class="ticket">&#9679;</span> Category 1 <span class="ticket">&#9679;</span></a>
-              <a href="#" data-category="category2"><span class="ticket">&#9679;</span> Category 2 <span class="ticket">&#9679;</span></a>
-              <a href="#" data-category="category3"><span class="ticket">&#9679;</span> Category 3 <span class="ticket">&#9679;</span></a>
-              <!-- Add more category options as needed -->
-            </div>
+      <div class="nav-filters">
+        <div class="nav-filters__dropdown">
+          <button class="nav-btn" onclick="toggleDropdown()">
+            Categories <i class="fas fa-caret-down"></i>
+          </button>
+          <div id="dropdown-content" class="dropdown-content">
+            <input
+              type="text"
+              id="category-search"
+              placeholder="Search categories..."
+              onkeyup="filterCategories()"
+            />
+            <!-- Categories will be appended here by JavaScript -->
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
     <div class="content">
       <div id="products" class="product-container">
         <!-- Products will be appended here by JavaScript -->
@@ -99,11 +100,17 @@
       <a href="javascript:void(0)" class="closebtn" id="close-sidebar"
         >&times;</a
       >
-      <a href="./page/profile.html">Profile</a>
-      <a href="./page/orders.html">Orders</a>
-      <a href="./page/settings.html">Settings</a>
-      <a href="./page/logout.html">Logout</a>
+      <a href="./page/profile.html"><i class="fas fa-user"></i> Profile</a>
+      <a href="./page/orders.html"><i class="fas fa-box"></i> Orders</a>
+      <a href="./page/contact.html"
+        ><i class="fas fa-envelope"></i> Contact Us</a
+      >
+      <a href="./page/settings.html"><i class="fas fa-cog"></i> Settings</a>
+      <a href="./page/logout.html"
+        ><i class="fas fa-sign-out-alt"></i> Logout</a
+      >
     </div>
     <script src="./scripts/view-products.js"></script>
+    <script src="./scripts/category.js"></script>
   </body>
 </html>
