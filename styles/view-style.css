@@ -360,3 +360,52 @@ footer {
   color: rgb(13, 12, 12);
   margin: 0 5px;
 }
+
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive banner styles */
+@media (max-width: 768px) {
+  .banner {
+    height: 200px; /* Adjust banner height for smaller screens */
+  }
+
+  .banner-images img {
+    width: 25%; /* Each image still takes up 25% of the banner width */
+  }
+
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-200%); /* Adjust animation distance for smaller screens */
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: 150px; /* Further adjust banner height for very small screens */
+  }
+
+  .banner-images img {
+    width: 25%; /* Each image still takes up 25% of the banner width */
+  }
+
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-300%); /* Adjust animation distance for very small screens */
+    }
+  }
+}
